@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Interview Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Animated Interview Scene Background - Moving Robots and Colored Dots -->
+    <div class="bg-3d">
+        <!-- Moving Colored Dots Background -->
+        <div class="dots-3d">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        
+        <!-- Moving Robots -->
+        <div class="moving-robot robot-1">🤖</div>
+        <div class="moving-robot robot-2">👾</div>
+        <div class="moving-robot robot-3">🤖</div>
+        <div class="moving-robot robot-4">👾</div>
+        <div class="moving-robot robot-5">🤖</div>
+        <div class="moving-robot robot-small">🤖</div>
+        <div class="moving-robot robot-small">👾</div>
+        <div class="moving-robot robot-small">🤖</div>
+        <div class="moving-robot robot-small">👾</div>
+        <div class="moving-robot robot-small">🤖</div>
+        
+        <!-- Robot Interview Scene - Less Blur -->
+        <div class="robot-interview-scene">
+            <div class="interview-room-blurred">
+                <div class="desk-3d-blurred">
+                    <div class="desk-top-blurred"></div>
+                    <div class="desk-leg-blurred left"></div>
+                    <div class="desk-leg-blurred right"></div>
+                </div>
+                <div class="laptop-3d-blurred">
+                    <div class="laptop-screen-blurred">
+                        <div class="video-call-blurred">
+                            <div class="interviewer-video-blurred"></div>
+                            <div class="candidate-video-blurred"></div>
+                        </div>
+                    </div>
+                    <div class="laptop-base-blurred"></div>
+                </div>
+                <div class="robot-assistant-blurred">
+                    <div class="robot-head-blurred"></div>
+                    <div class="robot-body-blurred"></div>
+                    <div class="robot-arm-blurred left"></div>
+                    <div class="robot-arm-blurred right"></div>
+                </div>
+                <div class="chair-3d-blurred left">
+                    <div class="chair-seat-blurred"></div>
+                    <div class="chair-back-blurred"></div>
+                </div>
+                <div class="chair-3d-blurred right">
+                    <div class="chair-seat-blurred"></div>
+                    <div class="chair-back-blurred"></div>
+                </div>
+                <div class="floating-icons-blurred">
+                    <div class="icon-3d-blurred">📊</div>
+                    <div class="icon-3d-blurred">📈</div>
+                    <div class="icon-3d-blurred">💡</div>
+                    <div class="icon-3d-blurred">⭐</div>
+                    <div class="icon-3d-blurred">🎯</div>
+                    <div class="icon-3d-blurred">🤖</div>
+                    <div class="icon-3d-blurred">⚡</div>
+                    <div class="icon-3d-blurred">💻</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AI Interview<span>Smart</span></h1>
+            </div>
+            <div class="nav-menu">
+                <a href="role-select.html">New Interview</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <div class="dashboard-header glass-card">
+            <h2>Welcome back, <span id="userName">User</span>!</h2>
+            <p>Track your interview progress and improve your skills</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-info">
+                    <h3 id="totalInterviews">0</h3>
+                    <p>Total Interviews</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-info">
+                    <h3 id="avgScore">0%</h3>
+                    <p>Average Score</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <h3 id="completedInterviews">0</h3>
+                    <p>Completed</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔄</div>
+                <div class="stat-info">
+                    <h3 id="inProgress">0</h3>
+                    <p>In Progress</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Interviews -->
+        <div class="recent-interviews">
+            <h3>Recent Interviews</h3>
+            <div class="interviews-list" id="interviewsList">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Performance Chart -->
+        <div class="performance-section">
+            <h3>Performance Over Time</h3>
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Improvement Tips -->
+        <div class="improvement-tips">
+            <h3>Personalized Tips</h3>
+            <div class="tips-list" id="tipsList">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
